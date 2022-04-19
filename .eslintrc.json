@@ -13,6 +13,17 @@
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        // 从 <roo/>@types 读取类型定义
+        "alwaysTryTypes": true
+      }
+    }
+  },
   "rules": {
     "react/jsx-filename-extension": [2, { "extensions": [".tsx"] }],
     "arrow-parens": ["error", "as-needed"],
@@ -40,17 +51,8 @@
     "import/no-extraneous-dependencies": [
       "error",
       { "devDependencies": ["vite.config.ts"] }
-    ]
-  },
-  "settings": {
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
-    },
-    "import/resolver": {
-      "typescript": {
-        // 从 <roo/>@types 读取类型定义
-        "alwaysTryTypes": true
-      }
-    }
+    ],
+    "import/prefer-default-export": 0,
+    "object-curly-newline": 0
   }
 }
